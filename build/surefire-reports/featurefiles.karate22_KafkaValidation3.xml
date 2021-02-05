@@ -1,0 +1,393 @@
+<testsuite failures="4" name="featurefiles/karate22_KafkaValidation3.feature" skipped="0" tests="8" time="0.089964">
+  <testcase classname="featurefiles.karate22_KafkaValidation3" name="Creating Consumer" time="0.027821">
+    <system-out>Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group" ................................. passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.json.v2+json" ............ passed
+When method post .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* match response.instance_id == "snehasish_consumer" ...................... passed
+* def consumer_url = response.base_uri .................................... passed
+* print consumer_url ...................................................... passed</system-out>
+  </testcase>
+  <testcase classname="featurefiles.karate22_KafkaValidation3" name="Subscribing to topic" time="0.009128">
+    <failure message="karate22_KafkaValidation3.feature:38 - status code was: 404, expected: 204, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {&quot;error_code&quot;:40403,&quot;message&quot;:&quot;Consumer instance not found.&quot;}">Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group" ................................. passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.json.v2+json" ............ passed
+When method post .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* match response.instance_id == "snehasish_consumer" ...................... passed
+* def consumer_url = response.base_uri .................................... passed
+* print consumer_url ...................................................... passed
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.v2+json" ................. passed
+When method post .......................................................... passed
+Then status 204 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:38 - status code was: 404, expected: 204, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 204 (karate22_KafkaValidation3.feature:38)</failure>
+  </testcase>
+  <testcase classname="featurefiles.karate22_KafkaValidation3" name="Getting Subscription" time="0.006814">
+    <failure message="karate22_KafkaValidation3.feature:46 - status code was: 404, expected: 200, response time: 5, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {&quot;error_code&quot;:40403,&quot;message&quot;:&quot;Consumer instance not found.&quot;}">Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group" ................................. passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.json.v2+json" ............ passed
+When method post .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* match response.instance_id == "snehasish_consumer" ...................... passed
+* def consumer_url = response.base_uri .................................... passed
+* print consumer_url ...................................................... passed
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.v2+json" ................. passed
+When method post .......................................................... passed
+Then status 204 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:38 - status code was: 404, expected: 204, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 204 (karate22_KafkaValidation3.feature:38)&#13;
+
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:46 - status code was: 404, expected: 200, response time: 5, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:46)&#13;
+
+* print response .......................................................... skipped
+* assert response.topics[0] == "snehasish_topic" .......................... skipped</failure>
+  </testcase>
+  <testcase classname="featurefiles.karate22_KafkaValidation3" name="Getting Subscription records" time="0.010781">
+    <failure message="karate22_KafkaValidation3.feature:57 - status code was: 500, expected: 200, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/records?timeout=3000&amp;max_bytes=300000, response: {&quot;error_code&quot;:500,&quot;message&quot;:&quot;Internal Server Error&quot;}">Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group" ................................. passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.json.v2+json" ............ passed
+When method post .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* match response.instance_id == "snehasish_consumer" ...................... passed
+* def consumer_url = response.base_uri .................................... passed
+* print consumer_url ...................................................... passed
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.v2+json" ................. passed
+When method post .......................................................... passed
+Then status 204 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:38 - status code was: 404, expected: 204, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 204 (karate22_KafkaValidation3.feature:38)&#13;
+
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:46 - status code was: 404, expected: 200, response time: 5, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:46)&#13;
+
+* print response .......................................................... skipped
+* assert response.topics[0] == "snehasish_topic" .......................... skipped
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/records" . passed
+And param timeout = 3000 .................................................. passed
+And param max_bytes = 300000 .............................................. passed
+And header Accept = "application/vnd.kafka.json.v2+json" .................. passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:57 - status code was: 500, expected: 200, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/records?timeout=3000&amp;max_bytes=300000, response: {"error_code":500,"message":"Internal Server Error"}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:57)&#13;
+
+* print response .......................................................... skipped</failure>
+  </testcase>
+  <testcase classname="featurefiles.karate22_KafkaValidation3" name="Getting assigned Assignments" time="0.01139">
+    <failure message="karate22_KafkaValidation3.feature:67 - evaluation (js) failed: response.partitions[0].topic == &quot;snehasish_topic&quot;, java.lang.IndexOutOfBoundsException: Index: 0, Size: 0&#10;stack trace: jdk.internal.dynalink.beans.BeanLinker.rangeCheck(BeanLinker.java:386)">Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group" ................................. passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.json.v2+json" ............ passed
+When method post .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* match response.instance_id == "snehasish_consumer" ...................... passed
+* def consumer_url = response.base_uri .................................... passed
+* print consumer_url ...................................................... passed
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.v2+json" ................. passed
+When method post .......................................................... passed
+Then status 204 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:38 - status code was: 404, expected: 204, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 204 (karate22_KafkaValidation3.feature:38)&#13;
+
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:46 - status code was: 404, expected: 200, response time: 5, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:46)&#13;
+
+* print response .......................................................... skipped
+* assert response.topics[0] == "snehasish_topic" .......................... skipped
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/records" . passed
+And param timeout = 3000 .................................................. passed
+And param max_bytes = 300000 .............................................. passed
+And header Accept = "application/vnd.kafka.json.v2+json" .................. passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:57 - status code was: 500, expected: 200, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/records?timeout=3000&amp;max_bytes=300000, response: {"error_code":500,"message":"Internal Server Error"}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:57)&#13;
+
+* print response .......................................................... skipped
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/assignments" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* assert response.partitions[0].topic == "snehasish_topic" ................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:67 - evaluation (js) failed: response.partitions[0].topic == "snehasish_topic", java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+stack trace: jdk.internal.dynalink.beans.BeanLinker.rangeCheck(BeanLinker.java:386)&#13;
+	at ✽.* assert response.partitions[0].topic == "snehasish_topic" (karate22_KafkaValidation3.feature:67)</failure>
+  </testcase>
+  <testcase classname="featurefiles.karate22_KafkaValidation3" name="Deleting assigned subscription" time="0.004566">
+    <system-out>Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group" ................................. passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.json.v2+json" ............ passed
+When method post .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* match response.instance_id == "snehasish_consumer" ...................... passed
+* def consumer_url = response.base_uri .................................... passed
+* print consumer_url ...................................................... passed
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.v2+json" ................. passed
+When method post .......................................................... passed
+Then status 204 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:38 - status code was: 404, expected: 204, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 204 (karate22_KafkaValidation3.feature:38)&#13;
+
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:46 - status code was: 404, expected: 200, response time: 5, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:46)&#13;
+
+* print response .......................................................... skipped
+* assert response.topics[0] == "snehasish_topic" .......................... skipped
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/records" . passed
+And param timeout = 3000 .................................................. passed
+And param max_bytes = 300000 .............................................. passed
+And header Accept = "application/vnd.kafka.json.v2+json" .................. passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:57 - status code was: 500, expected: 200, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/records?timeout=3000&amp;max_bytes=300000, response: {"error_code":500,"message":"Internal Server Error"}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:57)&#13;
+
+* print response .......................................................... skipped
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/assignments" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* assert response.partitions[0].topic == "snehasish_topic" ................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:67 - evaluation (js) failed: response.partitions[0].topic == "snehasish_topic", java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+stack trace: jdk.internal.dynalink.beans.BeanLinker.rangeCheck(BeanLinker.java:386)&#13;
+	at ✽.* assert response.partitions[0].topic == "snehasish_topic" (karate22_KafkaValidation3.feature:67)&#13;
+
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method delete ........................................................ passed
+Then status 204 ........................................................... passed</system-out>
+  </testcase>
+  <testcase classname="featurefiles.karate22_KafkaValidation3" name="Deleting consumer" time="0.010152">
+    <system-out>Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group" ................................. passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.json.v2+json" ............ passed
+When method post .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* match response.instance_id == "snehasish_consumer" ...................... passed
+* def consumer_url = response.base_uri .................................... passed
+* print consumer_url ...................................................... passed
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.v2+json" ................. passed
+When method post .......................................................... passed
+Then status 204 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:38 - status code was: 404, expected: 204, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 204 (karate22_KafkaValidation3.feature:38)&#13;
+
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:46 - status code was: 404, expected: 200, response time: 5, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:46)&#13;
+
+* print response .......................................................... skipped
+* assert response.topics[0] == "snehasish_topic" .......................... skipped
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/records" . passed
+And param timeout = 3000 .................................................. passed
+And param max_bytes = 300000 .............................................. passed
+And header Accept = "application/vnd.kafka.json.v2+json" .................. passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:57 - status code was: 500, expected: 200, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/records?timeout=3000&amp;max_bytes=300000, response: {"error_code":500,"message":"Internal Server Error"}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:57)&#13;
+
+* print response .......................................................... skipped
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/assignments" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* assert response.partitions[0].topic == "snehasish_topic" ................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:67 - evaluation (js) failed: response.partitions[0].topic == "snehasish_topic", java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+stack trace: jdk.internal.dynalink.beans.BeanLinker.rangeCheck(BeanLinker.java:386)&#13;
+	at ✽.* assert response.partitions[0].topic == "snehasish_topic" (karate22_KafkaValidation3.feature:67)&#13;
+
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method delete ........................................................ passed
+Then status 204 ........................................................... passed
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer" .... passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method delete ........................................................ passed
+Then status 204 ........................................................... passed</system-out>
+  </testcase>
+  <testcase classname="featurefiles.karate22_KafkaValidation3" name="Deleting consumer - Negative Test Case" time="0.009313">
+    <system-out>Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group" ................................. passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.json.v2+json" ............ passed
+When method post .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* match response.instance_id == "snehasish_consumer" ...................... passed
+* def consumer_url = response.base_uri .................................... passed
+* print consumer_url ...................................................... passed
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And request ............................................................... passed
+And header Content-Type = "application/vnd.kafka.v2+json" ................. passed
+When method post .......................................................... passed
+Then status 204 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:38 - status code was: 404, expected: 204, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 204 (karate22_KafkaValidation3.feature:38)&#13;
+
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:46 - status code was: 404, expected: 200, response time: 5, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/subscription, response: {"error_code":40403,"message":"Consumer instance not found."}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:46)&#13;
+
+* print response .......................................................... skipped
+* assert response.topics[0] == "snehasish_topic" .......................... skipped
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/records" . passed
+And param timeout = 3000 .................................................. passed
+And param max_bytes = 300000 .............................................. passed
+And header Accept = "application/vnd.kafka.json.v2+json" .................. passed
+When method get ........................................................... passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:57 - status code was: 500, expected: 200, response time: 6, url: http://192.168.1.62:8082/consumers/my-consumer-group/instances/snehasish_consumer/records?timeout=3000&amp;max_bytes=300000, response: {"error_code":500,"message":"Internal Server Error"}&#13;
+	at ✽.Then status 200 (karate22_KafkaValidation3.feature:57)&#13;
+
+* print response .......................................................... skipped
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/assignments" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* assert response.partitions[0].topic == "snehasish_topic" ................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate22_KafkaValidation3.feature:67 - evaluation (js) failed: response.partitions[0].topic == "snehasish_topic", java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+stack trace: jdk.internal.dynalink.beans.BeanLinker.rangeCheck(BeanLinker.java:386)&#13;
+	at ✽.* assert response.partitions[0].topic == "snehasish_topic" (karate22_KafkaValidation3.feature:67)&#13;
+
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer/subscription" . passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method delete ........................................................ passed
+Then status 204 ........................................................... passed
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer" .... passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method delete ........................................................ passed
+Then status 204 ........................................................... passed
+Given url "http://192.168.1.62:8082" ...................................... passed
+Given path "/consumers/my-consumer-group/instances/snehasish_consumer" .... passed
+And header Accept = "application/vnd.kafka.v2+json" ....................... passed
+When method delete ........................................................ passed
+Then status 404 ........................................................... passed
+* assert response.message == "Consumer instance not found." ............... passed</system-out>
+  </testcase>
+</testsuite>

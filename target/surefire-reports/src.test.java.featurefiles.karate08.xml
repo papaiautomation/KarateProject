@@ -1,0 +1,10 @@
+<testsuite failures="0" name="src/test/java/featurefiles/karate08.feature" skipped="0" tests="1" time="0.024155">
+  <testcase classname="src.test.java.featurefiles.karate08" name="Karate Data Type Validation TestCase 1" time="0.024155">
+    <system-out>* def a = 10 .............................................................. passed
+* def b = "karate" ........................................................ passed
+* def c = true ............................................................ passed
+* match a == "#number" .................................................... passed
+* match b == "#string" .................................................... passed
+* match c == "#boolean" ................................................... passed</system-out>
+  </testcase>
+</testsuite>

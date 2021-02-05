@@ -1,0 +1,7 @@
+<testsuite failures="0" name="src/test/java/featurefiles/karate24_KarateHooks.feature" skipped="0" tests="1" time="0.005856">
+  <testcase classname="src.test.java.featurefiles.karate24_KarateHooks" name="Karate Hooks TC 1" time="0.005856">
+    <system-out>* print "From background block" ........................................... passed
+* configure afterFeature = ................................................ passed
+* print "From scenario block" ............................................. passed</system-out>
+  </testcase>
+</testsuite>
