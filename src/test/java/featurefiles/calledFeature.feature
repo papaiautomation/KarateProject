@@ -16,3 +16,5 @@ Feature: Karate Called Feature Suite
     * print response
     * match response contains "104"
     * match response //string == 104
+
+    #Called Feature
